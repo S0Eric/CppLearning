@@ -41,9 +41,6 @@
     <ClInclude Include="Vector3.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="LogMemoryOperations.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="StdVector.h">
       <Filter>Header Files</Filter>
     </ClInclude>

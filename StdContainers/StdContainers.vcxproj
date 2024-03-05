@@ -134,7 +134,6 @@
     <ClCompile Include="Vector3.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="LogMemoryOperations.h" />
     <ClInclude Include="StdDeque.h" />
     <ClInclude Include="StdForwardList.h" />
     <ClInclude Include="StdVector.h" />
