@@ -1,30 +1,7 @@
 #include <iostream>
 
-#include "StdForwardList.h"
-#include "StdDeque.h"
-#include "StdVector.h"
-
-//#include "LogMemoryOperations.h"
-
 int main() {
-    //StdForwardList::DoBasics();
-    //StdDeque::DoBasic();
-    //StdVector::DoBasic();
-
-    //StdForwardList::DoTiming(3, 2);
-    //StdDeque::DoTiming(3, 2);
-    //StdVector::DoTiming(3, 2);
-
-    auto iterCount = 1000000;
-    auto itemCount = 10;
-
-    StdForwardList::DoTiming(iterCount, itemCount);
-    StdDeque::DoTiming(iterCount, itemCount);
-    StdVector::DoTiming(iterCount, itemCount);
-
-    StdForwardList::DoTiming(iterCount, itemCount);
-    StdDeque::DoTiming(iterCount, itemCount);
-    StdVector::DoTiming(iterCount, itemCount);
+    std::cout << "Hello.";
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
