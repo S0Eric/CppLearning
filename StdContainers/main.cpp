@@ -1,7 +1,41 @@
 #include <iostream>
 
+#include "StdForwardList.h"
+#include "StdDeque.h"
+#include "StdVector.h"
+#include "StdList.h"
+
+#if false
+void* operator new(size_t size) {
+    auto ret = malloc(size);
+    std::cout << "Allocated " << size << " bytes: " << std::hex << ret << std::dec << std::endl;
+    return ret;
+}
+
+void operator delete(void* memory, size_t size) {
+    std::cout << "Freeing " << size << " bytes: " << std::hex << memory << std::dec << std::endl;
+    free(memory);
+}
+#endif
+
 int main() {
-    std::cout << "Hello.";
+    //StdForwardList::DoBasics();
+    //StdDeque::DoBasic();
+    //StdVector::DoBasic();
+    //StdList::DoBasic();
+
+    auto iterCount = 1000000;
+    auto itemCount = 10;
+
+    StdForwardList::DoTiming(iterCount, itemCount);
+    StdDeque::DoTiming(iterCount, itemCount);
+    StdVector::DoTiming(iterCount, itemCount);
+    StdList::DoTiming(iterCount, itemCount);
+
+    StdForwardList::DoTiming(iterCount, itemCount);
+    StdDeque::DoTiming(iterCount, itemCount);
+    StdVector::DoTiming(iterCount, itemCount);
+    StdList::DoTiming(iterCount, itemCount);
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
