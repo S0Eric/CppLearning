@@ -130,12 +130,14 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="StdDeque.cpp" />
     <ClCompile Include="StdForwardList.cpp" />
+    <ClCompile Include="StdList.cpp" />
     <ClCompile Include="StdVector.cpp" />
     <ClCompile Include="Vector3.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="StdDeque.h" />
     <ClInclude Include="StdForwardList.h" />
+    <ClInclude Include="StdList.h" />
     <ClInclude Include="StdVector.h" />
     <ClInclude Include="Vector3.h" />
   </ItemGroup>

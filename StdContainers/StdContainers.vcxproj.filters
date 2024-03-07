@@ -30,6 +30,9 @@
     <ClCompile Include="StdVector.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="StdList.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="StdForwardList.h">
@@ -42,6 +45,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="StdVector.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="StdList.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
