@@ -19,23 +19,23 @@ void operator delete(void* memory, size_t size) {
 #endif
 
 int main() {
+    //StdList::DoBasic();
     //StdForwardList::DoBasics();
     //StdDeque::DoBasic();
     //StdVector::DoBasic();
-    //StdList::DoBasic();
 
     auto iterCount = 1000000;
     auto itemCount = 10;
 
+    StdList::DoTiming(iterCount, itemCount);
     StdForwardList::DoTiming(iterCount, itemCount);
     StdDeque::DoTiming(iterCount, itemCount);
     StdVector::DoTiming(iterCount, itemCount);
-    StdList::DoTiming(iterCount, itemCount);
 
+    StdList::DoTiming(iterCount, itemCount);
     StdForwardList::DoTiming(iterCount, itemCount);
     StdDeque::DoTiming(iterCount, itemCount);
     StdVector::DoTiming(iterCount, itemCount);
-    StdList::DoTiming(iterCount, itemCount);
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
