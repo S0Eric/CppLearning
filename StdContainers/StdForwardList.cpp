@@ -9,7 +9,7 @@
 
 using namespace std;
 
-void StdForwardList::DoBasics() {
+void StdForwardList::DoStacking() {
     cout << "Experiment with std::forward_list." << endl;
 
     auto i = 5;
@@ -41,7 +41,7 @@ void StdForwardList::DoBasics() {
 
 // Since forward_list is a linked list, it has to allocate and free a small header structure every time something is pushed or popped from the list. Is there any way to use forward_list in a way that doesn't cause any memory allocation and freeing, or is there a better std container class that efficiently supports pushing and popping from the front without causing memory operations?
 
-void StdForwardList::DoTiming(int iterCount, int itemCount) {
+void StdForwardList::DoStackTiming(int iterCount, int itemCount) {
     auto start = chrono::high_resolution_clock::now();
 
     std::forward_list<Vector3> fl;
@@ -56,5 +56,5 @@ void StdForwardList::DoTiming(int iterCount, int itemCount) {
 
     auto duration = chrono::duration_cast<chrono::milliseconds>(chrono::high_resolution_clock::now() - start).count();
 
-    cout << "forward_list Time: " << duration << " milliseconds" << endl;
+    cout << "Stacking: std::forward_list Time: " << duration << " milliseconds" << endl;
 }

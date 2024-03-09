@@ -8,7 +8,7 @@
 
 using namespace std;
 
-void StdVector::DoBasic() {
+void StdVector::DoStacking() {
     cout << "Experiment with std::vector." << endl;
 
     std::vector<Vector3> vec;
@@ -39,7 +39,7 @@ void StdVector::DoBasic() {
     cout << "Size: " << vec.size() << endl;
 }
 
-void StdVector::DoTiming(int iterCount, int itemCount) {
+void StdVector::DoStackTiming(int iterCount, int itemCount) {
     auto start = chrono::high_resolution_clock::now();
 
     std::vector<Vector3> vec;
@@ -55,5 +55,47 @@ void StdVector::DoTiming(int iterCount, int itemCount) {
 
     auto duration = chrono::duration_cast<chrono::milliseconds>(chrono::high_resolution_clock::now() - start).count();
 
-    cout << "vector Time: " << duration << " milliseconds" << endl;
+    cout << "Stacking: std::vector Time: " << duration << " milliseconds" << endl;
+}
+
+void StdVector::DoQueueing() {
+    cout << "Queueing with std::vector." << endl;
+
+    std::vector<Vector3> c;
+    c.reserve(20);
+    c.emplace_back(1, 2, 3);
+    c.emplace_back(4, 5, 6);
+    c.emplace_back(7, 8, 9);
+
+    while (!c.empty()) {
+        cout << c.front() << endl;
+        c.erase(c.begin());
+    }
+
+    c.emplace_back(1, 2, 3);
+    c.emplace_back(4, 5, 6);
+    c.emplace_back(7, 8, 9);
+
+    while (!c.empty()) {
+        cout << c.front() << endl;
+        c.erase(c.begin());
+    }
+}
+
+void StdVector::DoQueueTiming(int iterCount, int itemCount) {
+    auto start = chrono::high_resolution_clock::now();
+
+    std::vector<Vector3> c;
+    for (auto i = 0; i < iterCount; i++) {
+        for (auto j = 0; j < itemCount; j++) {
+            c.emplace_back(1, 2, 3);
+        }
+        for (auto j = 0; j < itemCount; j++) {
+            c.erase(c.begin());
+        }
+    }
+
+    auto duration = chrono::duration_cast<chrono::milliseconds>(chrono::high_resolution_clock::now() - start).count();
+
+    cout << "Queueing: std::vector Time: " << duration << " milliseconds" << endl;
 }

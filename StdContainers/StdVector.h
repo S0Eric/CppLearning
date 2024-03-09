@@ -2,7 +2,8 @@
 
 class StdVector {
 public:
-    static void DoBasic();
-    static void DoTiming(int iterCount, int itemCount);
+    static void DoStacking();
+    static void DoStackTiming(int iterCount, int itemCount);
+    static void DoQueueing();
+    static void DoQueueTiming(int iterCount, int itemCount);
 };
-

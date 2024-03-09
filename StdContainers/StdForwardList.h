@@ -2,6 +2,6 @@
 
 class StdForwardList {
 public:
-    static void DoBasics();
-    static void DoTiming(int iterCount, int itemCount);
+    static void DoStacking();
+    static void DoStackTiming(int iterCount, int itemCount);
 };

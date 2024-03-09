@@ -8,7 +8,7 @@
 
 using namespace std;
 
-void StdList::DoBasic() {
+void StdList::DoStacking() {
     cout << "Experiment with std::vector." << endl;
 
     std::list<Vector3> c;
@@ -37,7 +37,7 @@ void StdList::DoBasic() {
     cout << "Size: " << c.size() << endl;
 }
 
-void StdList::DoTiming(int iterCount, int itemCount) {
+void StdList::DoStackTiming(int iterCount, int itemCount) {
     auto start = chrono::high_resolution_clock::now();
 
     std::list<Vector3> c;
@@ -52,5 +52,46 @@ void StdList::DoTiming(int iterCount, int itemCount) {
 
     auto duration = chrono::duration_cast<chrono::milliseconds>(chrono::high_resolution_clock::now() - start).count();
 
-    cout << "list Time: " << duration << " milliseconds" << endl;
+    cout << "Stacking: std::list Time: " << duration << " milliseconds" << endl;
+}
+
+void StdList::DoQueueing() {
+    cout << "Queueing with std::list." << endl;
+
+    std::list<Vector3> c;
+    c.emplace_back(1, 2, 3);
+    c.emplace_back(4, 5, 6);
+    c.emplace_back(7, 8, 9);
+
+    while (!c.empty()) {
+        cout << c.front() << endl;
+        c.pop_front();
+    }
+
+    c.emplace_back(1, 2, 3);
+    c.emplace_back(4, 5, 6);
+    c.emplace_back(7, 8, 9);
+
+    while (!c.empty()) {
+        cout << c.front() << endl;
+        c.pop_front();
+    }
+}
+
+void StdList::DoQueueTiming(int iterCount, int itemCount) {
+    auto start = chrono::high_resolution_clock::now();
+
+    std::list<Vector3> c;
+    for (auto i = 0; i < iterCount; i++) {
+        for (auto j = 0; j < itemCount; j++) {
+            c.emplace_back(1, 2, 3);
+        }
+        for (auto j = 0; j < itemCount; j++) {
+            c.pop_front();
+        }
+    }
+
+    auto duration = chrono::duration_cast<chrono::milliseconds>(chrono::high_resolution_clock::now() - start).count();
+
+    cout << "Queueing: std::list Time: " << duration << " milliseconds" << endl;
 }
